@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# Electron-React Instagram Session Extractor
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is an Electron app with a React front-end, designed to open Instagram, capture session data (like `sessionid`, `csrftoken`, `mid`, `ig_did`, `ds_user_id`), and display it in JSON format. The app also provides options for clearing browser data and toggling developer tools.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Opens Instagram login page in a secure Electron browser window.
+- Extracts session data cookies and displays them in JSON format.
+- Provides an option to clear browser data and toggle developer tools.
+- Supports standard text operations (Copy, Paste, Cut) in the application menu.
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Ensure you have the following installed:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Node.js**: Download and install from [nodejs.org](https://nodejs.org/).
+- **npm**: Comes bundled with Node.js.
 
-### `npm test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Clone the Repository
 
-### `npm run build`
+```bash
+bash
+Copy code
+git clone <repository-url>
+cd <repository-directory>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. Install Dependencies
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+bash
+Copy code
+npm install
 
-### `npm run eject`
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This command installs all necessary dependencies for both Electron and React.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3. Run the Development Build
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To start the app in development mode with hot-reloading:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+bash
+Copy code
+npm run electron-dev
 
-## Learn More
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 4. Build for Production
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To create a production build of the app:
 
-### Code Splitting
+```bash
+bash
+Copy code
+npm run build
+npm run electron-start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
 
-### Analyzing the Bundle Size
+This creates a production-ready React build and runs it in Electron.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Usage
 
-### Making a Progressive Web App
+1. **Connect to Instagram**: Click the "Connect to Instagram" button to open the Instagram login page in a secure browser window.
+2. **View Session Data**: Once logged in, the app will capture session data and display it in JSON format.
+3. **Clear Browser Data**: Use the "Clear Browser Data" option in the "View" menu to reset all cached data, cookies, and other storage.
+4. **Developer Tools**: Toggle developer tools from the "View" menu to debug or inspect the app.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Project Structure
 
-### Advanced Configuration
+- **public/**: Contains `electron.js` for Electron main process setup.
+- **src/**: React app source files.
+- **preload.js**: Used to securely expose certain Electron features to the React front end.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Scripts
 
-### Deployment
+- `npm run electron-dev`: Runs the app in development mode with hot-reloading.
+- `npm run build`: Builds the React app for production.
+- `npm run electron-start`: Starts the Electron app with the production build of React.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## License
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License.
